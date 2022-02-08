@@ -3,20 +3,20 @@
 	<meta property="og:title" content="TD-MPC">
 	<meta property="og:description" content="Temporal Difference Learning for Model Predictive Control">
 	<style>
-body {background-color: #fdfdfd; color: rgb(33, 37, 41); margin: 0;}
+body {background-color: #fdfdfd; color: rgb(54, 54, 54); margin: 0;}
 h1, h2, h3, h4, h5 {text-align: center;}
-h1 {margin-bottom: 48px; font-size: 2em; }
-h2 {margin-top: 48px;}
-h1, h2, h3, h4, h5, a, p, span, body {font-weight: normal; font-family: sans-serif;}
-.header {background-color: #efeff3; width: 100%; padding-top: 48px; padding-bottom: 8px;}
+h1 {margin-bottom: 24px; font-size: 2.2em; font-weight: bold !important;}
+h2 {margin-top: 48px; font-weight: bold !important;}
+h1, h2, h3, h4, h5, a, p, span, body {font-weight: normal; font-family: "Google Sans", sans-serif;}
+.header {background-color: #f5f9ff; width: 100%; padding-top: 48px; padding-bottom: 8px;}
 .links {width: 100%; margin: auto; text-align: center; padding-top: 8px; padding-bottom: 16px;}
-.content {max-width: 900px; margin: auto; margin-top: 48px;}
-a, h2 {color: #2471a3; text-decoration: none;}
-a:hover {color: #5499c7;}
+.content {max-width: 900px; margin: auto; margin-top: 48px; margin-bottom: 64px;}
+a, h2 {color: rgb(32, 156, 238); text-decoration: none;}
+a:hover {color: rgb(69, 164, 228);}
 .nobreak {white-space: nowrap;}
 .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
 p {line-height: 1.4em; text-align: justify;}
-.abstract {max-width: 664px; margin: auto;}
+.abstract {max-width: 600px; margin: auto;}
 .math {font-family: "Computer Modern Sans", sans-serif; font-style: italic;}
 sub, sup {line-height: 0;}
 .figure {width: 100%; min-height: 120px; margin: 36px 0; background-repeat: no-repeat; background-position: center; background-size: contain;}
@@ -35,13 +35,16 @@ a.btn {display: inline-block; min-width: 70px; font-family: -apple-system, Blink
 a.btn:hover {background-color:  #7fb3d5;}
 a.btn-left {border-radius: 6px 0 0 6px;}
 a.btn-right {border-radius: 0 6px 6px 0;}
-.btn-bg-alt {background-color: #5499c7 !important;}
-.btn-bg-alt:hover {background-color: #2471a3 !important;}
+.btn-bg-alt {background-color: rgb(32, 156, 238) !important;}
+.btn-bg-alt:hover {background-color: rgb(69, 164, 228) !important;}
 .bibtexsection {padding: 4px 16px; font-family: "Courier", monospace; font-size: 12px; white-space: pre; background-color: #f4f4f4; text-align: left;}
 .noselect {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
 .bold {font-weight: bold;}
 .italic {font-style: italic;}
+footer {background-color: #efeff3; width: 100%; margin-top: 32px; padding-top: 16px; padding-bottom: 16px; text-align: center;}
 	</style>
+	<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+	rel="stylesheet">
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 	</script>
@@ -52,4 +55,148 @@ a.btn-right {border-radius: 0 6px 6px 0;}
 
 <div class="header">
 	<h1>Temporal Difference Learning for Model Predictive Control</h1>
+	<table class="authors">
+		<tbody>
+			<tr>
+				<td>
+					<h4>
+						<a href="#" class="nobreak">Anonymous Authors</a>
+						<span class="authors-affiliation">Paper ID #8011</span>
+					</h4>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="links">
+		<a href="#">Code to be released</a>
+	</div>
 </div>
+<div class="content">
+	<div class="figure" style="height: 196px; background-image: url(images/0.png);"></div>
+	<div style="margin: auto; margin-top: -24px; max-width: 85%;">
+		<p>
+			We present <span class="bold">TD-MPC</span>, a framework for model predictive control (MPC) using a latent dynamics model and terminal value function <span class="italic">learned jointly</span> by temporal difference learning. Our method compares favorably to prior model-free and model-based methods and solves high-dimensional Humanoid locomotion tasks in 1M environment steps (<span class="italic">see above</span>).
+		</p>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Abstract</h2>
+		<p class="abstract">
+			In sequential decision making problems, data-driven model predictive control has two key advantages over model-free methods: a potential for improved sample efficiency through model learning, and better performance as computational budget for planning increases. However, it is both costly to plan over long horizons and challenging to obtain an accurate model of the environment. In this work, we combine the strengths of model-free and model-based methods. We use a learned latent dynamics model for local trajectory optimization over a short horizon, and use a learned terminal value function to estimate long-term return, both of which are <span class="italic">learned jointly</span> by temporal difference learning. Our method, <span class="bold">TD-MPC</span>, achieves superior sample efficiency and asymptotic performance over baselines on both state and image-based continuous control tasks from DMControl and Meta-World, and solves Humanoid locomotion tasks in 1M environment steps.
+		</p>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Results (DMControl)</h2>
+		<p style="text-align: center;">
+			We evaluate <span class="bold">TD-MPC</span> on 18 diverse continuous control tasks from DMControl; trajectories for 8 tasks are shown.
+		</p>
+		<div class="content-video" style="margin-bottom: 32px">
+			<div class="content-video-container">
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/humanoid-walk.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/walker-run.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/quadruped-run.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/finger-turn-hard.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/cheetah-run.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/fish-swim.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/hopper-hop.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/reacher-hard.mp4" type="video/mp4"/>
+				</video>
+			</div>
+		</div>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Results (Meta-World)</h2>
+		<p style="text-align: center;">
+			We evaluate <span class="bold">TD-MPC</span> on 50 goal-conditioned tasks from Meta-World; trajectories for 8 tasks are shown.
+		</p>
+		<div class="content-video" style="margin-bottom: 32px">
+			<div class="content-video-container">
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/bin-picking.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/assembly.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/peg-insert-side.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/soccer.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/pick-place.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/hammer.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/window-open.mp4" type="video/mp4"/>
+				</video>
+				<video playsinline="" autoplay="" loop="" preload="" muted="" width="24.5%">
+					<source src="videos/box-close.mp4" type="video/mp4"/>
+				</video>
+			</div>
+		</div>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Planning with TD-MPC</h2>
+		<div class="figure" style="height: 224px; background-image: url(images/1.png);"></div>
+		<div style="margin: auto; margin-top: -16px; max-width: 85%;">
+			<p>
+				<span class="bold">TD-MPC</span> is a framework for MPC using a latent dynamics model and terminal value function, both <span class="italic">learned jointly</span> by temporal difference learning. During inference, we perform trajectory optimization with Model Predictive Path Integral (MPPI) control over (latent) model rollouts and use the value function for long-term return estimates. Our method additionally uses a learned policy \(\pi_{\theta}\) that is used to guide planning, and we propose several other extensions to the MPC framework that leverage ideas from model-free RL; see our paper for details.
+			</p>
+		</div>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Training our Latent Dynamics Model</h2>
+		<div class="figure" style="height: 320px; background-image: url(images/2.png);"></div>
+		<div style="margin: auto; margin-top: -16px; max-width: 85%;">
+			<p>
+				<span class="bold">Training.</span> A trajectory \(\Gamma_{0:H}\) of length \(H\) is sampled from a replay buffer, and the first observation \(\mathbf{s}_{0}\) is encoded by \(h_{\theta}\) into a latent representation \(\mathbf{z}_{0}\). Then, the LDM recurrently predicts the following latent states \(\mathbf{z}_{1}, \mathbf{z}_{2},\dots,\mathbf{z}_{H}\), as well as a value \(\hat{q}\), reward \(\hat{r}\), and action \(\hat{\mathbf{a}}\) for each latent state, and we optimize the LDM using rewards and temporal difference learning. Subsequent observations are encoded using target net \(h_{\theta^{-}}\) and used as latent targets only during training (illustrated in gray).
+			</p>
+		</div>
+	</div>
+	<div class="hr"></div>
+	<div>
+		<h2>Benchmark Results</h2>
+		<div class="figure" style="height: 576px; background-image: url(images/3.png);"></div>
+		<div style="margin: auto; margin-top: -24px; max-width: 85%;">
+			<p><span class="bold">DMControl.</span> We compare our method (<span class="bold">TD-MPC</span>) to <span class="bold">SAC</span> (model-free), <span class="bold">LOOP</span> (hybrid model-free/model-based), <span class="bold">MPC</span> (model-based) with access to a <span class="italic">ground-truth</span> model (simulator), and two ablations: <span class="italic">(i)</span> our method without latent dynamics, and <span class="italic">(ii)</span> our method without our proposed latent state consistency regularization. Experiments are conducted on 15 diverse state-based tasks from DMControl. We also consider 3 high-dimensional Humanoid locomotion tasks (see first figure) and 5 image-based tasks from DMControl (results below), as well as 50 goal-conditioned manipulation tasks from Meta-World (see our paper).</p><br/>
+			<p><span class="bold">Learning from pixels.</span> With trivial modifications to our method, we match the performance of state-of-the-art image-based methods on the sample-efficient DMControl 100k benchmark. MuZero/EfficientZero here use a discretized action space.</p>
+		</div>
+		<div class="figure" style="height: 156px; background-image: url(images/4.png); margin-top: 0px;"></div>
+	</div>
+	<div class="hr"></div>
+	<div class="margin-bottom: 64px;">
+		<h2>Comparison to Related Work</h2>
+		<div style="margin: auto; margin-top: 24px; max-width: 85%;">
+			<p>
+				<p>Below, we compare key components of <span class="bold">TD-MPC</span> to prior model-based and model-free methods. <span class="italic">Model objective</span> describes which objective is used to learn a (latent) dynamics model, <span class="italic">value</span> denotes whether a value function is learned, <span class="italic">inference</span> provides a simplified overview of action selection at inference time, <span class="italic">continuous</span> denotes whether an algorithm can handle continuous action spaces, and <span class="italic">compute</span> is a simplified estimate of the relative computational cost of methods during training and inference.</p>
+			</p>
+		</div>
+		<div class="figure" style="height: 288px; background-image: url(images/5.png);"></div>
+	</div>
+</div>
+<footer>
+<span class="bold">TD-MPC</span><br/>
+Paper ID #8011
+</footer>
